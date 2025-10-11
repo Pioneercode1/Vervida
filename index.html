@@ -8,10 +8,236 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo" aria-label="شعار شركة اجروفيرت للتنمية">🌱 اجروفيرت للتنمية</div>
 
-    <h1>Welcome to My Web Page</h1>
-    <p>This is a sample paragraph to demonstrate the structure of an HTML document.</p>
-    <button id="myButton">Click Me!</button>
+      <input type="checkbox" id="menu-toggle" aria-label="تبديل القائمة" />
+      <label for="menu-toggle" class="menu-icon" tabindex="0">
+        <span></span>
+      </label>
 
+      <nav class="mobile-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" tabindex="0">الرئيسية</a>
+        <a href="about.html" tabindex="0">عن الشركة</a>
+        <a href="#" tabindex="0">المنتجات</a>
+        <a href="#" tabindex="0">الإنجازات</a>
+        <a href="#" tabindex="0">شهادات العملاء</a>
+        <a href="contact.html" tabindex="0">تواصل معنا</a>
+      </nav>
+
+      <nav class="desktop-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" aria-current="page" tabindex="0">الرئيسية</a>
+        <a href="about.html" tabindex="0">عن الشركة</a>
+        <a href="#" tabindex="0">المنتجات</a>
+        <a href="#" tabindex="0">الإنجازات</a>
+        <a href="#" tabindex="0">شهادات العملاء</a>
+        <a href="contact.html" tabindex="0">تواصل معنا</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" role="banner" aria-label="قسم مقدمة عن الشركة ورؤيتها">
+    <div class="hero-content">
+      <h2>نحو زراعة مستدامة ومخصبات فعالة بلمسة تقنية متقدمة</h2>
+      <p>شركة اجروفيرت للتنمية، رائدة في تصنيع المخصبات والأدوية الزراعية والمبيدات الحشرية والفطرية، نقدم لك حلول زراعية مبتكرة تعزز من إنتاجية وجودة المحاصيل.</p>
+      <a href="#vision" class="btn-primary" tabindex="0" aria-label="اقرأ المزيد عن رؤيتنا">
+        اكتشف رؤيتنا <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <section class="vision-section" id="vision" aria-labelledby="vision-title">
+    <h3 id="vision-title">رؤيتنا وقيمنا الأساسية</h3>
+    <div class="vision-cards">
+      <article class="vision-card" tabindex="0" aria-label="الابتكار والتطوير">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h4>الابتكار والتطوير</h4>
+        <p>نلتزم بالابتكار المستمر لتقديم منتجات ذات جودة عالية تلبي احتياجات المزارعين وتساعد على تنمية الزراعة المستدامة.</p>
+      </article>
+      <article class="vision-card" tabindex="0" aria-label="الثقة والمصداقية">
+        <i class="fa-solid fa-handshake"></i>
+        <h4>الثقة والمصداقية</h4>
+        <p>نبني علاقات متينة مع عملائنا من خلال الشفافية والمصداقية في جميع تعاملاتنا.</p>
+      </article>
+      <article class="vision-card" tabindex="0" aria-label="الاستدامة والمسؤولية">
+        <i class="fa-solid fa-leaf"></i>
+        <h4>الاستدامة والمسؤولية</h4>
+        <p>نحرص على الحفاظ على البيئة من خلال تطوير منتجات صديقة للبيئة تدعم الزراعة المستدامة.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="products-title">
+  <h2 id="products-title">منتجاتنا</h2>
+  <div class="products">
+    <article class="product-card" tabindex="0" role="region" aria-label="مخصب عضوي">
+      <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80" alt="مخصب عضوي" loading="lazy" />
+      <div class="product-info">
+        <h3>مخصب عضوي</h3>
+        <p>يعزز نمو النباتات ويحافظ على التربة.</p>
+      </div>
+    </article>
+    <article class="product-card" tabindex="0" role="region" aria-label="مبيد فطري">
+      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89bd1d?auto=format&fit=crop&w=600&q=80" alt="مبيد فطري" loading="lazy" />
+      <div class="product-info">
+        <h3>مبيد فطري</h3>
+        <p>حماية فعالة ضد الأمراض الفطرية.</p>
+      </div>
+    </article>
+    <article class="product-card" tabindex="0" role="region" aria-label="مبيد حشري">
+      <img src="https://images.unsplash.com/photo-1615486364997-6c06f55f056d?auto=format&fit=crop&w=600&q=80" alt="مبيد حشري" loading="lazy" />
+      <div class="product-info">
+        <h3>مبيد حشري</h3>
+        <p>حماية المحاصيل من الآفات بفعالية عالية.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <section class="features-section" aria-labelledby="features-title">
+    <h3 id="features-title">لماذا تختار شركتنا؟</h3>
+    <div class="features-list">
+      <article class="feature-item" tabindex="0" aria-label="منتجات عالية الجودة">
+        <i class="fa-solid fa-check-circle"></i>
+        <h4>منتجات عالية الجودة</h4>
+        <p>نقدم مخصبات وأدوية زراعية معتمدة وفعالة تلبي أعلى معايير الجودة العالمية.</p>
+      </article>
+      <article class="feature-item" tabindex="0" aria-label="خبرة متميزة">
+        <i class="fa-solid fa-briefcase"></i>
+        <h4>خبرة متميزة</h4>
+        <p>فريقنا متخصص في مجالات التكنولوجيا الحيوية الزراعية مع سنوات من الخبرة العملية.</p>
+      </article>
+      <article class="feature-item" tabindex="0" aria-label="دعم فني متواصل">
+        <i class="fa-solid fa-headset"></i>
+        <h4>دعم فني متواصل</h4>
+        <p>نوفر دعمًا مستمرًا لعملائنا لضمان أفضل استخدام للمنتجات وتحقيق أفضل النتائج.</p>
+      </article>
+    </div>
+  </section>
+  
+  <!-- قسم الإنجازات -->
+<section class="achievements-section" aria-labelledby="achievements-title" style="margin:80px auto; max-width:1100px;">
+  <h3 id="achievements-title" style="font-size:2.2rem; color:#2e7d32; margin-bottom:36px; font-weight:800; text-align:center;">
+    إنجازاتنا
+  </h3>
+  <div class="achievements-list" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:30px;">
+    <article class="achievement-card" tabindex="0" style="background:#fff; border-radius:16px; box-shadow:0 6px 22px rgba(0,0,0,0.1); padding:36px 28px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:default;">
+      <img src="https://images.unsplash.com/photo-1581090700227-148dd2e63b20?auto=format&fit=crop&w=400&q=60" alt="معمل متطور" style="width:100%; border-radius:12px; margin-bottom:18px; object-fit:cover; height:180px;" />
+      <h4 style="color:#2e7d32; font-weight:700; font-size:1.4rem; margin-bottom:12px;">معمل متطور</h4>
+      <p style="color:#555; font-size:1rem; line-height:1.5;">
+        تجهيز معامل البحث والتطوير بأحدث الأجهزة لتحسين جودة منتجاتنا.
+      </p>
+    </article>
+    <article class="achievement-card" tabindex="0" style="background:#fff; border-radius:16px; box-shadow:0 6px 22px rgba(0,0,0,0.1); padding:36px 28px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:default;">
+      <img src="https://images.unsplash.com/photo-1526403227870-8bb08cc9b7db?auto=format&fit=crop&w=400&q=60" alt="شهادات جودة معتمدة" style="width:100%; border-radius:12px; margin-bottom:18px; object-fit:cover; height:180px;" />
+      <h4 style="color:#2e7d32; font-weight:700; font-size:1.4rem; margin-bottom:12px;">شهادات جودة معتمدة</h4>
+      <p style="color:#555; font-size:1rem; line-height:1.5;">
+        حصولنا على شهادات عالمية تعكس التزامنا بأعلى معايير الصناعة.
+      </p>
+    </article>
+    <article class="achievement-card" tabindex="0" style="background:#fff; border-radius:16px; box-shadow:0 6px 22px rgba(0,0,0,0.1); padding:36px 28px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:default;">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=60" alt="نمو السوق والتوسع" style="width:100%; border-radius:12px; margin-bottom:18px; object-fit:cover; height:180px;" />
+      <h4 style="color:#2e7d32; font-weight:700; font-size:1.4rem; margin-bottom:12px;">نمو السوق والتوسع</h4>
+      <p style="color:#555; font-size:1rem; line-height:1.5;">
+        توسعنا المستمر في الأسواق المحلية والدولية لتعزيز حضورنا.
+      </p>
+    </article>
+  </div>
+</section>
+<section aria-labelledby="achievements-title">
+  <div class="achievements">
+    <div class="achievement" tabindex="0" aria-label="15+ سنة خبرة">
+      <div class="icon" aria-hidden="true">🌿</div>
+      <div class="number">15+</div>
+      سنة خبرة
+    </div>
+    <div class="achievement" tabindex="0" aria-label="50+ منتج معتمد">
+      <div class="icon" aria-hidden="true">🧪</div>
+      <div class="number">50+</div>
+      منتج معتمد
+    </div>
+    <div class="achievement" tabindex="0" aria-label="200+ مزرعة شريكة">
+      <div class="icon" aria-hidden="true">🤝</div>
+      <div class="number">200+</div>
+      مزرعة شريكة
+    </div>
+    <div class="achievement" tabindex="0" aria-label="1000+ عميل سعيد">
+      <div class="icon" aria-hidden="true">😊</div>
+      <div class="number">1000+</div>
+      عميل سعيد
+    </div>
+  </div>
+</section>
+<!-- قسم شهادات العملاء -->
+<section class="testimonials-section" aria-labelledby="testimonials-title" style="margin:80px auto; max-width:1100px;">
+  <h3 id="testimonials-title" style="font-size:2.2rem; color:#2e7d32; margin-bottom:36px; font-weight:800; text-align:center;">
+    شهادات العملاء
+  </h3>
+  <div class="testimonials-list" style="display:flex; flex-wrap:wrap; gap:30px; justify-content:center;">
+    <article class="testimonial-card" tabindex="0" style="background:#fff; border-radius:16px; box-shadow:0 6px 22px rgba(0,0,0,0.1); padding:36px 28px; flex:1 1 320px; max-width:360px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:default;">
+      <p style="color:#555; font-size:1rem; line-height:1.5; margin-bottom:24px; font-style:italic;">
+        "منتجات الشركة حسنت بشكل ملحوظ من جودة محصولي وأعطت نتائج سريعة وفعالة. الدعم الفني كان رائعاً ومتجاوباً."
+      </p>
+      <h4 style="color:#2e7d32; font-weight:700; font-size:1.2rem; margin-bottom:6px;">أحمد عبد الله</h4>
+      <span style="font-size:0.95rem; color:#888;">مزارع في محافظة الفيوم</span>
+    </article>
+    <article class="testimonial-card" tabindex="0" style="background:#fff; border-radius:16px; box-shadow:0 6px 22px rgba(0,0,0,0.1); padding:36px 28px; flex:1 1 320px; max-width:360px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:default;">
+      <p style="color:#555; font-size:1rem; line-height:1.5; margin-bottom:24px; font-style:italic;">
+        "شركة موثوقة تقدم منتجات ذات جودة عالية مع خدمات دعم ممتازة. أنصح الجميع باستخدامها."
+      </p>
+      <h4 style="color:#2e7d32; font-weight:700; font-size:1.2rem; margin-bottom:6px;">سارة محمود</h4>
+      <span style="font-size:0.95rem; color:#888;">مديرة مزرعة في الدقهلية</span>
+    </article>
+    <article class="testimonial-card" tabindex="0" style="background:#fff; border-radius:16px; box-shadow:0 6px 22px rgba(0,0,0,0.1); padding:36px 28px; flex:1 1 320px; max-width:360px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:default;">
+      <p style="color:#555; font-size:1rem; line-height:1.5; margin-bottom:24px; font-style:italic;">
+        "تجربة رائعة مع شركة اجروفيرت للتنمية، المنتجات آمنة وفعالة، وفريق العمل متعاون للغاية."
+      </p>
+      <h4 style="color:#2e7d32; font-weight:700; font-size:1.2rem; margin-bottom:6px;">محمد علي</h4>
+      <span style="font-size:0.95rem; color:#888;">خبير زراعي في القاهرة</span>
+    </article>
+  </div>
+</section>
+
+  <section class="cta-section" aria-label="دعوة لاتخاذ إجراء">
+    <h3>هل أنت مستعد لتعزيز زراعتك معنا؟</h3>
+    <p>تواصل معنا اليوم لاكتشاف حلولنا الزراعية المتكاملة وتحقيق أفضل إنتاجية لأراضيك.</p>
+    <a href="contact.html" class="btn-primary" tabindex="0" aria-label="تواصل معنا الآن">
+      تواصل معنا <i class="fa-solid fa-phone"></i>
+    </a>
+  </section>
+</main>
+
+<footer>
+    <div class="copyright-info">
+           <p> شركة اجروفيرت للتنمية - جميع الحقوق محفوظة <span class="tel-span">2025 ©</span></p> 
+            <p class="powered">
+                Powered By
+                <a href="https://wa.me/201002646280" target="_blank" rel="noopener noreferrer">
+                    <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756491271/km_uctkq8.png" alt="Web Developer image" loading="lazy" width="80px" height="70px" class="dev-logo">
+                </a>
+            </p>
+        </div>
+</footer>
+
+<button id="btnTop" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script>
+  // زر العودة للأعلى
+  const btnTop = document.getElementById('btnTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btnTop.classList.add('show');
+    } else {
+      btnTop.classList.remove('show');
+    }
+  });
+  btnTop.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+</script>
 </body>
 </html>
