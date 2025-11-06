@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>الشروط والأحكام - شركة فيرفيدا للتنمية</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: 'Cairo', Tahoma, sans-serif; background: #f9f9f6; color: #333; line-height: 1.6;
+  }
+  a {
+    color: #4caf50; text-decoration: none;
+  }
+  a:hover, a:focus {
+    text-decoration: underline; outline: none;
+  }
+  header {
+    background: linear-gradient(90deg,#4caf50 0%,#81c784 100%);
+    color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: fixed; width: 100%; top: 0; z-index: 2000;
+  }
+  .container {
+    max-width: 1200px; margin: auto; padding: 0 20px;
+  }
+  header .header-inner {
+    display: flex; justify-content: space-between; align-items: center; padding: 15px 0; position: relative;
+  }
+  .logo {
+    font-weight: 700; font-size: 1.9rem; user-select: none;
+  }
+  nav.desktop-menu {
+    display: flex; align-items: center;
+  }
+  nav.desktop-menu a {
+    margin: 0 18px; font-weight: 600; padding: 8px 14px; border-radius: 6px; transition: background-color 0.3s ease; color: white; user-select: none;
+  }
+  nav.desktop-menu a:hover, nav.desktop-menu a[aria-current="page"] {
+    background-color: rgba(255 255 255 / 0.3);
+  }
+  #menu-toggle {
+    display: none;
+  }
+  .menu-icon {
+    display: none; cursor: pointer; width: 30px; height: 22px; position: relative;
+  }
+  .menu-icon span, .menu-icon span::before, .menu-icon span::after {
+    display: block; background: white; height: 3px; width: 100%; border-radius: 2px; position: absolute; transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+  }
+  .menu-icon span {
+    top: 50%; transform: translateY(-50%);
+  }
+  .menu-icon span::before {
+    content: ''; top: -8px;
+  }
+  .menu-icon span::after {
+    content: ''; top: 8px;
+  }
+  #menu-toggle:checked + label.menu-icon span {
+    background-color: transparent;
+  }
+  #menu-toggle:checked + label.menu-icon span::before {
+    transform: rotate(45deg); top: 0;
+  }
+  #menu-toggle:checked + label.menu-icon span::after {
+    transform: rotate(-45deg); top: 0;
+  }
+  nav.mobile-menu {
+    display: none; flex-direction: column; background: #4caf50; position: fixed; top: 60px; right: 0; left: 0; border-radius: 0 0 14px 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); padding: 10px 0; z-index: 1500;
+  }
+  nav.mobile-menu a {
+    padding: 14px 30px; font-weight: 700; border-bottom: 1px solid rgba(255 255 255 / 0.2); color: white; user-select: none;
+  }
+  nav.mobile-menu a:last-child {
+    border-bottom: none;
+  }
+  nav.mobile-menu a:hover, nav.mobile-menu a:focus {
+    background-color: rgba(255 255 255 / 0.3); outline: none;
+  }
+  #menu-toggle:checked ~ nav.mobile-menu {
+    display: flex;
+  }
+  @media (max-width: 768px) {
+    nav.desktop-menu {
+      display: none;
+    }
+    .menu-icon {
+      display: block;
+    }
+  }
+  main {
+    max-width: 900px; margin: 100px auto 60px; padding: 20px 28px;
+    background: white; border-radius: 16px; box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+  }
+  main h1 {
+    color: #2e7d32; font-weight: 700; font-size: 2.6rem; margin-bottom: 32px; text-align: center;
+  }
+  .accordion-item {
+    border-bottom: 1px solid #d9d9d9;
+  }
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 18px 16px;
+    background-color: #e6f4ea;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #2e7d32;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .accordion-header:hover,
+  .accordion-header:focus {
+    background-color: #c8e6c9;
+    outline: none;
+  }
+  .accordion-header i {
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+    color: #4caf50;
+  }
+  .accordion-header.active i {
+    transform: rotate(180deg);
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 16px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+  }
+  .accordion-content.open {
+    padding: 12px 16px 18px;
+    max-height: 1000px; /* كبير بما فيه الكفاية لاستيعاب المحتوى */
+  }
+  .accordion-content ul {
+    list-style-type: disc;
+    padding-right: 20px;
+    margin-top: 10px;
+  }
+  .accordion-content ul li {
+    margin-bottom: 10px;
+  }
+  .tel-span {
+      direction: ltr;
+      unicode-bidi: embed;
+  }
+  footer {
+    background: #2e7d32; color: white; text-align: center; padding: 22px 12px; font-size: 0.9rem; user-select: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const openContent = header.nextElementSibling;
+        const isOpen = openContent.classList.contains('open');
+
+        // إغلاق جميع الفقرات المفتوحة
+        document.querySelectorAll('.accordion-content.open').forEach(content => {
+          content.classList.remove('open');
+          content.previousElementSibling.classList.remove('active');
+        });
+
+        if (!isOpen) {
+          openContent.classList.add('open');
+          header.classList.add('active');
+        }
+      });
+
+      header.addEventListener('keypress', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          header.click();
+        }
+      });
+    });
+  });
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo" aria-label="شعار شركة فيرفيدا للتنمية">🌱 فيرفيدا للتنمية</div>
+
+      <input type="checkbox" id="menu-toggle" aria-label="تبديل القائمة" />
+      <label for="menu-toggle" class="menu-icon" tabindex="0">
+        <span></span>
+      </label>
+
+      <nav class="mobile-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" tabindex="0">الرئيسية</a>
+        <a href="about.html" tabindex="0">عن الشركة</a>
+        <a href="contact.html" tabindex="0">تواصل معنا</a>
+        <a href="terms.html" tabindex="0">الشروط والأحكام</a>
+        <a href="privacy.html" tabindex="0" aria-current="page">سياسة الخصوصية</a>
+        <a href="fag.html" tabindex="0">الاسئلة الشائعة</a>
+      </nav>
+
+      <nav class="desktop-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" tabindex="0">الرئيسية</a>
+        <a href="about.html" tabindex="0">عن الشركة</a>
+        <a href="contact.html" tabindex="0">تواصل معنا</a>
+        <a href="terms.html" tabindex="0">الشروط والأحكام</a>
+        <a href="privacy.html" tabindex="0" aria-current="page">سياسة الخصوصية</a>
+        <a href="fag.html" tabindex="0">الاسئلة الشائعة</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>الشروط والأحكام</h1>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      مقدمة
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        مرحبًا بكم في موقع شركة فيرفيدا للتنمية. باستخدامك لهذا الموقع، فإنك توافق على الالتزام بهذه الشروط والأحكام التي تحكم استخدامك للموقع.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      الملكية الفكرية
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        جميع المحتويات المعروضة على هذا الموقع من نصوص، صور، شعارات، وتصاميم هي ملك لشركة فيرفيدا للتنمية ومحفوظة بموجب قوانين حقوق الملكية الفكرية.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      استخدام الموقع
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <ul>
+        <li>يُسمح لك باستخدام الموقع للأغراض الشخصية والتجارية المشروعة فقط.</li>
+        <li>يمنع إعادة نشر أو نسخ أي محتوى بدون إذن صريح من الشركة.</li>
+        <li>يحظر استخدام الموقع بأي طريقة قد تسبب ضرراً أو تعطل للموقع.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      الخصوصية وحماية البيانات
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        نحرص على حماية بياناتك الشخصية ونلتزم بعدم مشاركتها مع أي طرف ثالث إلا بموافقتك أو حسب ما يقتضيه القانون.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      التعديلات على الشروط
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        تحتفظ شركة فيرفيدا للتنمية بحق تعديل هذه الشروط في أي وقت دون إشعار مسبق. ننصح بمراجعة هذه الصفحة بانتظام.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      إخلاء المسؤولية
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        يقدم الموقع المعلومات "كما هي" دون أي ضمان من أي نوع. لا تتحمل الشركة أي مسؤولية عن أي أضرار ناتجة عن استخدام الموقع.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      الروابط الخارجية
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        قد يحتوي الموقع على روابط لمواقع أخرى. نحن لا نتحكم في محتوى تلك المواقع ولا نتحمل مسؤولية أي أضرار قد تنتج عن استخدامها.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      القانون الواجب التطبيق
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        تخضع هذه الشروط والأحكام وتفسر وفقًا لقوانين جمهورية مصر العربية.
+      </p>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <div class="accordion-header" tabindex="0">
+      الاتصال بنا
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="accordion-content">
+      <p>
+        لأي استفسارات بخصوص هذه الشروط والأحكام، يرجى التواصل معنا عبر صفحة <a href="contact.html">تواصل معنا</a>.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+    <p> شركة فيرفيدا للتنمية - جميع الحقوق محفوظة <span class="tel-span">2025 ©</span></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>تواصل معنا - شركة فيرفيدا للتنمية</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: 'Cairo', Tahoma, sans-serif;
+    background: #f9f9f6; color: #333; line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(90deg,#4caf50 0%,#81c784 100%);
+    color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: fixed; width: 100%; top: 0; z-index: 2000;
+  }
+  .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+  header .header-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 0; position: relative;
+  }
+  .logo {
+    font-weight: 700; font-size: 1.9rem; user-select: none;
+  }
+  nav.desktop-menu {
+    display: flex; align-items: center;
+  }
+  nav.desktop-menu a {
+    margin: 0 18px; font-weight: 600; padding: 8px 14px;
+    border-radius: 6px; transition: background-color 0.3s ease;
+    color: white; user-select: none;
+  }
+  nav.desktop-menu a:hover,
+  nav.desktop-menu a:focus {
+    background-color: rgba(255 255 255 / 0.3);
+    outline: none;
+  }
+  #menu-toggle { display: none; }
+  .menu-icon {
+    display: none; cursor: pointer; width: 30px; height: 22px;
+    position: relative;
+  }
+  .menu-icon span,
+  .menu-icon span::before,
+  .menu-icon span::after {
+    display: block; background: white; height: 3px; width: 100%;
+    border-radius: 2px; position: absolute;
+    transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+  }
+  .menu-icon span {
+    top: 50%; transform: translateY(-50%);
+  }
+  .menu-icon span::before { content: ''; top: -8px; }
+  .menu-icon span::after { content: ''; top: 8px; }
+  #menu-toggle:checked + label.menu-icon span {
+    background-color: transparent;
+  }
+  #menu-toggle:checked + label.menu-icon span::before {
+    transform: rotate(45deg); top: 0;
+  }
+  #menu-toggle:checked + label.menu-icon span::after {
+    transform: rotate(-45deg); top: 0;
+  }
+  nav.mobile-menu {
+    display: none; flex-direction: column;
+    background: #4caf50; position: fixed;
+    top: 60px; right: 0; left: 0;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 10px 0; z-index: 1500;
+  }
+  nav.mobile-menu a {
+    padding: 14px 30px; font-weight: 700;
+    border-bottom: 1px solid rgba(255 255 255 / 0.2);
+    color: white; user-select: none;
+  }
+  nav.mobile-menu a:last-child { border-bottom: none; }
+  nav.mobile-menu a:hover,
+  nav.mobile-menu a:focus {
+    background-color: rgba(255 255 255 / 0.3);
+    outline: none;
+  }
+  #menu-toggle:checked ~ nav.mobile-menu { display: flex; }
+  @media (max-width: 768px) {
+    nav.desktop-menu { display: none; }
+    .menu-icon { display: block; }
+  }
+
+  main {
+    max-width: 700px;
+    margin: 100px auto 60px;
+    padding: 30px 28px 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+  }   
+
+  main h1 {
+    color: #2e7d32;
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2e7d32;
+  }
+  form input[type="text"],
+  form input[type="email"],
+  form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 22px;
+    border: 2px solid #a5d6a7;
+    border-radius: 10px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  form input[type="text"]:focus,
+  form input[type="email"]:focus,
+  form textarea:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+    outline: none;
+  }
+  form textarea {
+    min-height: 120px;
+  }
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 36px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: #388e3c;
+    box-shadow: 0 8px 20px rgba(57, 130, 56, 0.7);
+    outline: none;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .success-message,
+  .error-message {
+    text-align: center;
+    margin-top: 18px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: none;
+  }
+  .success-message {
+    color: #2e7d32;
+  }
+  .error-message {
+    color: #d32f2f;
+  }
+  .contact-info {
+    margin-top: 60px;
+    background: #e8f5e9;
+    border-radius: 16px;
+    padding: 5px;
+    box-shadow: 0 6px 20px rgba(46,125,50,0.1);
+  }
+
+  .contact-info h3 {
+    color: #2e7d32;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
+    word-break: break-word;
+    color: #3a3a3a;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .contact-info p i {
+    color: #4caf50;
+    font-size: 1.4rem;
+    min-width: 28px;
+    text-align: center;
+  }
+  .map-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto 60px;
+  box-shadow: 0 10px 30px rgba(46,125,50,0.2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+  .tel-span {
+      direction: ltr;
+      unicode-bidi: embed;
+  }
+  
+  footer {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  .powered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    vertical-align: top;
+    font-size: 16px;
+    direction: ltr;
+}
+.dev-logo {
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+}
+  /* responsive */
+   @media (min-width: 1024px) {
+    main {
+      margin: 120px auto 80px;
+      padding: 40px 50px 50px;
+      max-width: 800px;
+    }
+  }
+  @media (max-width: 600px) {
+    main {
+      margin: 90px 12px 60px;
+      padding: 20px;
+    }
+    .map-container {
+      max-width: 100%;
+      margin: 16px auto 40px;
+    }
+  }
+  
+@media (max-width: 480px) {
+  .contact-info {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .contact-info h3 {
+    font-size: 16px;
+  }
+
+  .contact-info p {
+    flex-direction: column; /* يجعل الأيقونة فوق النص إذا كانت الشاشة ضيقة جدًا */
+    align-items: flex-start;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById('contactForm');
+    const errorBox = document.getElementById('errorBox');
+    const successBox = document.getElementById('successBox');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      errorBox.style.display = 'none';
+      successBox.style.display = 'none';
+      errorBox.innerHTML = '';
+
+      const formData = new FormData(form);
+
+      let errors = [];
+
+      if (!formData.get('fullName') || formData.get('fullName').trim().length < 3) {
+        errors.push('الرجاء إدخال الاسم الكامل (3 أحرف على الأقل).');
+      }
+
+      const email = formData.get('email');
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailPattern.test(email)) {
+        errors.push('الرجاء إدخال بريد إلكتروني صالح.');
+      }
+
+      if (!formData.get('subject') || formData.get('subject').trim() === '') {
+        errors.push('الرجاء إدخال موضوع الرسالة.');
+      }
+
+      if (!formData.get('message') || formData.get('message').trim().length < 10) {
+        errors.push('الرجاء كتابة رسالة مفصلة (10 أحرف على الأقل).');
+      }
+
+      if (errors.length > 0) {
+        errorBox.style.display = 'block';
+        errorBox.innerHTML = errors.join('<br>');
+        errorBox.focus();
+        return;
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+        });
+
+        const text = await response.text();
+
+        if (response.ok) {
+          successBox.style.display = 'block';
+          successBox.textContent = text;
+          form.reset();
+          successBox.focus();
+        } else {
+          errorBox.style.display = 'block';
+          errorBox.innerHTML = text || 'حدث خطأ أثناء الإرسال، حاول مرة أخرى.';
+          errorBox.focus();
+        }
+      } catch (err) {
+        errorBox.style.display = 'block';
+        errorBox.textContent = 'خطأ في الاتصال بالخادم، يرجى المحاولة لاحقاً.';
+        errorBox.focus();
+      }
+    });
+  });
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo" aria-label="شعار شركة فيرفيدا للتنمية">🌱 فيرفيدا للتنمية</div>
+
+      <input type="checkbox" id="menu-toggle" aria-label="تبديل القائمة" />
+      <label for="menu-toggle" class="menu-icon" tabindex="0">
+        <span></span>
+      </label>
+
+      <nav class="mobile-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" tabindex="0">الرئيسية</a>
+        <a href="about.html" tabindex="0">عن الشركة</a>
+        <a href="contact.html" tabindex="0">تواصل معنا</a>
+        <a href="terms.html" tabindex="0">الشروط والأحكام</a>
+        <a href="privacy.html" tabindex="0" aria-current="page">سياسة الخصوصية</a>
+        <a href="fag.html" tabindex="0">الاسئلة الشائعة</a>
+      </nav>
+
+      <nav class="desktop-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <a href="index.html" tabindex="0">الرئيسية</a>
+        <a href="about.html" tabindex="0">عن الشركة</a>
+        <a href="contact.html" tabindex="0">تواصل معنا</a>
+        <a href="terms.html" tabindex="0">الشروط والأحكام</a>
+        <a href="privacy.html" tabindex="0" aria-current="page">سياسة الخصوصية</a>
+        <a href="fag.html" tabindex="0">الاسئلة الشائعة</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main role="main" aria-labelledby="pageTitle">
+  <h1 id="pageTitle">تواصل معنا</h1>
+
+  <form id="contactForm" action="send-contact.php" method="POST" novalidate aria-describedby="formInstructions">
+    <p id="formInstructions" style="text-align:center; color:#555; margin-bottom:20px;">
+      يرجى ملء النموذج أدناه وسنرد عليك في أقرب وقت ممكن.
+    </p>
+
+    <div id="errorBox" class="error-message" role="alert" tabindex="0"></div>
+    <div id="successBox" class="success-message" role="alert" tabindex="0"></div>
+
+    <div class="form-group">
+      <label for="fullName">الاسم الكامل<span aria-hidden="true" style="color:#d32f2f;"> *</span></label>
+      <input type="text" id="fullName" name="fullName" required placeholder="أدخل اسمك الكامل" autocomplete="name" />
+    </div>
+
+    <div class="form-group">
+      <label for="email">البريد الإلكتروني<span aria-hidden="true" style="color:#d32f2f;"> *</span></label>
+      <input type="email" id="email" name="email" required placeholder="example@mail.com" autocomplete="email" />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">رقم الهاتف</label>
+      <input type="text" id="phone" name="phone" placeholder="رقم الهاتف (اختياري)" autocomplete="tel" />
+    </div>
+
+    <div class="form-group">
+      <label for="address">العنوان</label>
+      <input type="text" id="address" name="address" placeholder="عنوانك الحالي (اختياري)" />
+    </div>
+
+    <div class="form-group">
+      <label for="subject">موضوع الرسالة<span aria-hidden="true" style="color:#d32f2f;"> *</span></label>
+      <input type="text" id="subject" name="subject" required placeholder="موضوع رسالتك" />
+    </div>
+
+    <div class="form-group">
+      <label for="message">رسالتك<span aria-hidden="true" style="color:#d32f2f;"> *</span></label>
+      <textarea id="message" name="message" required placeholder="اكتب رسالتك هنا..." rows="5"></textarea>
+    </div>
+
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>" />
+
+    <button type="submit" aria-label="إرسال رسالة التواصل">إرسال</button>
+  </form>
+  <section class="contact-info" aria-labelledby="contactInfoTitle">
+    <h3 id="contactInfoTitle">معلومات الاتصال</h3>
+    <p><i class="fa-solid fa-phone"></i> هاتف: <a href="tel:‏‪+201004912530‬‏" aria-label="اتصال هاتفي"><span class="tel-span">+201004912530‬‏</span></a></p>
+    <p><i class="fa-solid fa-envelope"></i> البريد الإلكتروني: <a href="mailto:info@agrofert.com" aria-label="البريد الإلكتروني">info@agrofert.com</a></p>
+    <p><i class="fa-solid fa-location-dot"></i> العنوان: ش المعاهدة، مول الطيب، القنطرة غرب، الإسماعيلية.</p>
+    <p><i class="fa-brands fa-whatsapp"></i> واتساب: <a href="https://wa.me/+201004912530" target="_blank" rel="noopener noreferrer" aria-label="واتساب">أضغط للدردشة</a></p>
+    
+  </section>
+  
+  <section class="map-section" aria-label="موقع الشركة على الخريطة">
+  <h3 style="text-align:center; color:#2e7d32; margin-bottom:16px; font-weight:700;">
+    موقعنا على الخريطة
+  </h3>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d428.1625511447549!2d32.30468355283877!3d30.850263301919405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f9ab08223d9ebd%3A0xdbe8ffb0f391944!2sMAKA%20BRAND!5e0!3m2!1sar!2seg!4v1759160934044!5m2!1sar!2seg"
+      width="100%"
+      height="320"
+      style="border:0; border-radius:16px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="خريطة موقع شركة فيرفيدا للتنمية"
+    ></iframe>
+  </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="copyright-info">
+           <p> شركة فيرفيدا للتنمية - جميع الحقوق محفوظة <span class="tel-span">2025 ©</span></p> 
+            <p class="powered">
+                Powered By Pioneercode
+            </p>
+        </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>عن شركة فيرفيدا للتنمية الزراعية</title>
+
+    <meta name="description"
+        content="شركة vervida للتنمية الزراعية: تصنيع المخصبات الزراعية والأدوية الزراعية والمبيدات. حلول زراعية مبتكرة ومستدامة." />
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* ========================================================= */
+        /* متغيرات CSS لسهولة التعديل */
+        /* ========================================================= */
+        :root {
+            /* الألوان */
+            --primary-green: #4caf50;
+            --secondary-green: #81c784;
+            --dark-green: #2e7d32;
+            --bg-light: #f9f9f6;
+            --text-dark: #333;
+            --text-light: #555;
+            --accent-gold: #ffd54f;
+
+            /* الخطوط */
+            --font-cairo: 'Cairo', Tahoma, sans-serif;
+
+            /* الظلال */
+            --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.18);
+            --shadow-lg: 0 12px 30px rgba(46, 125, 50, 0.2);
+            --shadow-cta: 0 16px 40px rgba(46, 125, 50, 0.5);
+            --shadow-card-hover: 0 20px 50px rgba(46, 125, 50, 0.35);
+        }
+
+        /* ========================================================= */
+        /* تنسيقات عامة */
+        /* ========================================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-cairo);
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        a:focus,
+        button:focus {
+            outline: 3px solid var(--secondary-green);
+            outline-offset: 3px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ========================================================= */
+        /* تنسيقات الرأس (Header) والقائمة */
+        /* ========================================================= */
+        header {
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 2000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .logo img {
+            width: 130px;
+            height: 55px;
+            user-select: none;
+        }
+
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .desktop-menu a {
+            margin: 0 18px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            color: white;
+        }
+
+        .desktop-menu a:hover,
+        .desktop-menu a[aria-current="page"] {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 22px;
+            position: relative;
+        }
+
+        .menu-icon span,
+        .menu-icon span::before,
+        .menu-icon span::after {
+            display: block;
+            background: white;
+            height: 3px;
+            width: 100%;
+            border-radius: 2px;
+            position: absolute;
+            transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+        }
+
+        .menu-icon span {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-icon span::before {
+            content: '';
+            top: -8px;
+        }
+
+        .menu-icon span::after {
+            content: '';
+            top: 8px;
+        }
+
+        #menu-toggle:checked+label.menu-icon span {
+            background-color: transparent;
+        }
+
+        #menu-toggle:checked+label.menu-icon span::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        #menu-toggle:checked+label.menu-icon span::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        nav.mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #4caf50;
+            position: fixed;
+            top: 60px;
+            right: 0;
+            left: 0;
+            border-radius: 0 0 14px 14px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 10px 0;
+            z-index: 1500;
+        }
+
+        nav.mobile-menu a {
+            padding: 18px 30px;
+            font-weight: 700;
+            border-bottom: 1px solid rgba(255 255 255 / 0.2);
+            color: white;
+        }
+
+        nav.mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        nav.mobile-menu a:hover,
+        nav.mobile-menu a:focus {
+            background-color: rgba(255 255 255 / 0.3);
+            outline: none;
+        }
+
+        #menu-toggle:checked~nav.mobile-menu {
+            display: flex;
+        }
+
+        @media (max-width: 768px) {
+            nav.desktop-menu {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        /* ========================================================= */
+        /* تنسيقات قسم البطل (Hero Section) */
+        /* ========================================================= */
+        .hero {
+            position: relative;
+            background-image: url('https://res.cloudinary.com/dsxfxoqr5/image/upload/v1756124591/drone1_qmnnua.webp');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            min-height: 58vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            margin-top: 70px;
+            overflow: hidden;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(21, 43, 21, 0.55), rgba(21, 43, 21, 0.55));
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin: 8px 0 12px;
+            font-size: 2.2rem;
+            letter-spacing: 0.6px;
+        }
+
+        .hero p {
+            margin: 0 auto 18px;
+            max-width: 800px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #082b05;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .cta.secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-left: 12px;
+            box-shadow: none;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ========================================================= */
+        /* تنسيقات المحتوى الرئيسي (Main) */
+        /* ========================================================= */
+        main {
+            max-width: 1200px;
+            margin: 100px auto 80px;
+            padding: 0 20px;
+        }
+
+        main h1 {
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin-bottom: 48px;
+            text-align: center;
+            letter-spacing: 1.2px;
+        }
+
+        .about-intro {
+            background: white;
+            border-radius: 18px;
+            padding: 48px 30px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 60px;
+            text-align: center;
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .about-intro-title {
+            margin: 0 0 6px;
+            color: var(--dark-green);
+        }
+
+        .values-section,
+        .team-section,
+        .cta-section {
+            margin: 60px auto;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            color: var(--dark-green);
+            margin-bottom: 36px;
+            font-weight: 800;
+            font-size: 2.4rem;
+        }
+
+        .values-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 36px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+            padding: 30px 22px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .value-card i {
+            font-size: 50px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: var(--dark-green);
+            font-weight: 700;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .team-section h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--dark-green);
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            max-width: 280px;
+            flex: 1 1 280px;
+            padding: 24px;
+            margin: 0 auto;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(46, 125, 50, 0.28);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 18px;
+            border: 4px solid var(--secondary-green);
+        }
+
+        .team-member h4 {
+            margin-bottom: 10px;
+            color: var(--dark-green);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .animated-section {
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 60px;
+        }
+
+        .animated-section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .animated-section h2,
+        .animated-section h3 {
+            margin-bottom: 16px;
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-right: 5px solid var(--accent-gold);
+            padding-right: 10px;
+        }
+
+        .animated-section p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .milestones {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .milestones li {
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            background: #fdfdfd;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+            transition: background 0.3s ease;
+        }
+
+        .milestones li:hover {
+            background: #f0f0f0;
+        }
+
+        .milestones strong {
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .partners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: auto;
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .trust {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            margin-bottom: 60px;
+        }
+
+        .trust .text {
+            flex: 1;
+        }
+
+        .trust .logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-start;
+        }
+
+        .certs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 8px
+        }
+
+        .cert {
+            background: #f9f9f9;
+            padding: 6px 14px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+            font-weight: 600;
+            color: var(--dark-green);
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+
+        .cert:hover {
+            background: #e0e0e0;
+        }
+
+        .trust .logos>div {
+            width: 120px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .trust .logos>div:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .trust .logos img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .cta-section {
+            margin: 100px auto 120px;
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            border-radius: 22px;
+            padding: 48px 24px;
+            color: white;
+            text-align: center;
+            box-shadow: var(--shadow-cta);
+        }
+
+        .cta-section h3 {
+            font-size: 2.4rem;
+            margin-bottom: 24px;
+            font-weight: 800;
+            letter-spacing: 1.1px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            padding: 18px 52px;
+            font-size: 1.25rem;
+            background-color: var(--secondary-green);
+            color: white;
+            border: none;
+            border-radius: 40px;
+            box-shadow: 0 8px 24px rgba(129, 199, 132, 0.7);
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.35s ease, box-shadow 0.35s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-green);
+            box-shadow: 0 12px 34px rgba(76, 175, 80, 0.9);
+        }
+
+        .btn-primary i {
+            font-size: 1.4rem;
+        }
+
+        /* ========================================================= */
+        /* تنسيقات الذيل (Footer) */
+        /* ========================================================= */
+        footer {
+            background: var(--dark-green);
+            color: white;
+            text-align: center;
+            padding: 22px 12px;
+            font-size: 0.9rem;
+            gap: 15px;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 8px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-info {
+            font-size: 0.95rem;
+            color: #fff9;
+            margin-top: 6px
+        }
+
+        .social-links {
+            margin-top: 10px
+        }
+
+        .tel-span {
+            direction: ltr;
+            unicode-bidi: embed;
+        }
+
+        .powered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            vertical-align: top;
+            font-size: 16px;
+            direction: ltr;
+        }
+
+        .dev-logo {
+            width: 90px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* ========================================================= */
+        /* التجاوب مع مختلف الأجهزة (Responsive Design) */
+        /* ========================================================= */
+        @media (max-width: 768px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .values-list {
+                grid-template-columns: 1fr;
+            }
+
+            .team-list {
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-intro,
+            .animated-section,
+            .trust {
+                padding: 20px;
+            }
+
+            .cta-section h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <div class="logo"><img src="aaaa.jpeg" width="140px" height="100px" alt="vervida logo"></div>
+
+                <input type="checkbox" id="menu-toggle" aria-label="تبديل القائمة" />
+                <label for="menu-toggle" class="menu-icon" tabindex="0"><span></span></label>
+
+                <nav class="mobile-menu" role="navigation" aria-label="القائمة الرئيسية">
+                    <a href="index.html" tabindex="0">الرئيسية</a>
+                    <a href="about.html" tabindex="0">عن الشركة</a>
+                    <a href="contact.html" tabindex="0">تواصل معنا</a>
+                    <a href="terms.html" tabindex="0">الشروط والأحكام</a>
+                    <a href="privacy.html" tabindex="0" aria-current="page">سياسة الخصوصية</a>
+                    <a href="fag.html" tabindex="0">الاسئلة الشائعة</a>
+                </nav>
+
+                <nav class="desktop-menu" role="navigation" aria-label="القائمة الرئيسية">
+                    <a href="index.html" tabindex="0">الرئيسية</a>
+                    <a href="about.html" tabindex="0">عن الشركة</a>
+                    <a href="contact.html" tabindex="0">تواصل معنا</a>
+                    <a href="terms.html" tabindex="0">الشروط والأحكام</a>
+                    <a href="privacy.html" tabindex="0" aria-current="page">سياسة الخصوصية</a>
+                    <a href="fag.html" tabindex="0">الاسئلة الشائعة</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="hero" role="img" aria-label="حقل مزدهر">
+        <div class="hero-inner">
+            <span class="eyebrow">مبتكر — عصري — موثوق</span>
+            <h1>حيث تلتقي بذور الإبداع بخصوبة الأرض</h1>
+            <p>نصنع شراكات تنمو كما تنمو الحقول؛ منتجات مُبتكرة، شفافية تكتسب الثقة، وخبرة تحرس محصولك من البذرة إلى
+                الحصاد.</p>
+            <div>
+                <a class="cta" href="#">تواصل معنا</a>
+                <a class="cta secondary" href="#">تصفح المنتجات</a>
+            </div>
+        </div>
+    </section>
+    <main>
+        <section class="about-intro" aria-labelledby="intro-title">
+            <h2 id="intro-title" class="about-intro-title">vervida</h2>
+            <div>حيث تلتقي الأصالة بالابتكار. نصوغ مستقبل الزراعة والأدوية النباتية بحلولٍ عصرية، مستوحاة من جوهر
+                الطبيعة. نقدم منتجاتٍ تجمع بين الجودة العالية والقيمة المضافة، لنبني جسرًا من الثقة والتعاون مع شركائنا.
+                في كل بذرةٍ نرويها، وفي كل ابتكارٍ نقدمه، نعدكم بالجودة، ونلتزم بالريادة.</div>
+        </section>
+
+        <h1>من نحن</h1>
+
+        <section class="about-intro">
+            <p>
+                في عالم يتغير بسرعة، حيث تواجه الزراعة تحديات المناخ، ونقص الموارد، وحاجة الأرض إلى حلول ذكية… جاءت
+                vervida للتنمية لتكون الجسر بين العلم والحياة.
+                نحن نرى الأرض ككائن حي يحتاج إلى رعاية، ونعلم أن مستقبل الغذاء يعتمد على حاضرنا اليوم. لذلك، نبتكر ونطور
+                حلولًا زراعية تجمع بين التكنولوجيا الحديثة والمعرفة العلمية، مع التركيز على الاستدامة وجودة الإنتاج.
+                من المخصبات المتطورة إلى الأدوية الزراعية الفعّالة، هدفنا هو منح المُزارع أدوات النجاح، ليبدع في اعمار
+                الأرض وزيارة إنتاج محاصيله، والحفاظ على البيئة نظيفة.
+            </p>
+        </section>
+
+        <section class="about-intro">
+            <h2 id="intro-title" class="about-intro-title">رؤيتُنا</h2>
+            <p>أصالةُ الأرضِ وريادةُ المستقبل <br> نجمعُ بين عبقِ الماضي ونبضِ المستقبل لنكونَ جسرًا يربطُ الأصالة
+                بالتقدم. رؤيتُنا هي تقديمُ منتجاتٍ ليستْ فقط فعّالة، بل تحملُ في جوهرِها احترامًا عميقًا للطبيعة vervida
+                للتنمية ليستْ مجردَ علامة تجارية، بل هي التزامٌ بالجودةِ، ووعدٌ بالريادةِ والابتكار، وشغفٌ لبناءِ
+                مستقبلٍ مزدهرٍ لنا وللأجيالِ القادمة.</p>
+        </section>
+
+        <section class="values-section">
+            <h2>قيمنا الأساسية</h2>
+            <div class="values-list">
+                <article class="value-card"><i class="fa-solid fa-lightbulb"></i>
+                    <h3>الابتكار والإبداع</h3>
+                    <p>نسعى دائما لتطوير حلول زراعية مبتكرة تواكب أحدث التقنيات وتلبي تطلعات عملائنا.</p>
+                </article>
+                <article class="value-card"><i class="fa-solid fa-handshake"></i>
+                    <h3>الثقة والمصداقية</h3>
+                    <p>نعمل بشفافية تامة لنكسب ثقة شركائنا ونعزز علاقاتنا على أسس متينة.</p>
+                </article>
+                <article class="value-card"><i class="fa-solid fa-leaf"></i>
+                    <h3>الاستدامة والمسؤولية</h3>
+                    <p>نحرص على تقديم منتجات صديقة للبيئة تضمن استدامة الزراعة وحماية الموارد الطبيعية.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>فريقنا</h2>
+            <div class="team-list">
+                <article class="team-member">
+                    <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066461/person1_pmxbkw.png"
+                        alt="صورة الحسيني فتحي" loading="lazy" />
+                    <h4>م/ الحسين فتحي</h4>
+                    <p>المدير التنفيذي وخبير التكنولوجيا الحيوية الزراعية، يقود فريقنا نحو الابتكار والتميز.</p>
+                </article>
+                <article class="team-member">
+                    <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066423/person4_iobxsv.webp"
+                        alt="صورة أحمد علي" loading="lazy" />
+                    <h4>عيسي فتحي</h4>
+                    <p>رئيس قسم البحث والتطوير، مسؤول عن تطوير المنتجات وتحسين جودتها باستمرار.</p>
+                </article>
+                <article class="team-member">
+                    <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066462/person2_reu7wg.png"
+                        alt="صورة مهند مصطفى" loading="lazy" />
+                    <h4>د/ احمد سالم</h4>
+                    <p>مدير التسويق، يضع استراتيجيات للتواصل مع العملاء وزيادة انتشار العلامة التجارية، تخطيط وإدارة
+                        استراتيجيات التسويق.</p>
+                </article>
+                <article class="team-member">
+                    <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066462/person3_j6llnp.png"
+                        alt="صورة أحمد مصطفى" loading="lazy" />
+                    <h4>م/ احمد مصطفى</h4>
+                    <p>المدير المالي، المسؤول عن التخطيط والرقابة المالية وضمان استدامة الموارد لدعم القرارات
+                        الاستراتيجية للشركة.</p>
+                </article>
+            </div>
+        </section>
+
+        <section aria-label="محطات هامة في مسيرة الشركة" class="animated-section">
+            <h2>محطات هامة</h2>
+            <ul class="milestones">
+                <li><strong>2017:</strong> تأسيس الشركة وبدء عمليات التصنيع المحلية.</li>
+                <li><strong>2019:</strong> إطلاق أول مخصب عضوي معتمد من وزارة الزراعة.</li>
+                <li><strong>2023:</strong> التوسع للأسواق الإقليمية مع افتتاح فرع في دول الخليج.</li>
+                <li><strong>2024:</strong> اعتماد شهادة الجودة ISO 9001 وتحسين خطوط الإنتاج.</li>
+                <li><strong>2025:</strong> إطلاق منتجات مبيدات حشرية وفطرية صديقة للبيئة.</li>
+            </ul>
+        </section>
+
+        <section aria-label="شركاؤنا" class="animated-section">
+            <h2>شركاؤنا</h2>
+            <div class="partners" role="list" aria-label="شركاء النجاح">
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066422/agrovida_pkjhb7.jpg"
+                    alt="logo agrovida" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066419/vervida_hjl16w.png"
+                    alt="logo vervida" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066421/fao_g7ob9g.jpg" alt="logo fao"
+                    loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066420/bayer_fq0gf2.jpg"
+                    alt="logo Bayer" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066420/dow_xdllpo.png"
+                    alt="logo Dow Chemical" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066422/syngenta_fxrgtw.png"
+                    alt="logo syngenta" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066421/olivera_v9auwq.jpg"
+                    alt="logo olivera" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066420/vervida1_swdy5c.png"
+                    alt="logo Dow Chemical" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066417/sa_jqkio2.jpg"
+                    alt="logo syngenta" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+
+                <img src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756067666/agro1_n5ix93.png"
+                    alt="logo olivera" loading="lazy" tabindex="0" role="listitem" class="partner-logo" />
+            </div>
+        </section>
+
+        <section class="trust" aria-labelledby="trust-title">
+            <div class="text">
+                <h3 id="trust-title">ثقة العملاء وشهادات الجودة</h3>
+                <p>نفتخر بثقة المزارعين والمؤسسات التي تعتمد على منتجاتنا، ونتعاون مع مختبرات وشركاء دوليين لضمان أعلى
+                    معايير الجودة والسلامة.</p>
+                <div class="certs">
+                    <div class="cert">ISO 9001</div>
+                    <div class="cert">شهادة صديقة للبيئة</div>
+                    <div class="cert">مختبرات معتمدة</div>
+                </div>
+            </div>
+
+            <div class="logos" aria-hidden="true">
+                <div>
+                    <img width="100%" height="auto"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756230839/%D8%AA%D9%86%D8%B2%D9%8A%D9%84_ibc8ea.png"
+                        alt="logo a" loading="lazy">
+                </div>
+                <div>
+                    <img width="100%" height="100px"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066418/agroeg_xukuid.jpg"
+                        alt="logo b" loading="lazy">
+                </div>
+                <div>
+                    <img width="100%" height="100px"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066418/agroeg1_orjfdx.jpg"
+                        alt="logo b" loading="lazy">
+                </div>
+                <div>
+                    <img width="100%" height="100px"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066416/iso1_djcmjj.jpg" alt="logo b"
+                        loading="lazy">
+                </div>
+                <div>
+                    <img width="100%" height="100px"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756066416/agrois_bvl1i3.jpg"
+                        alt="logo b" loading="lazy">
+                </div>
+                <div>
+                    <img width="100%" height="100px"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756230840/images_1_cukryl.jpg"
+                        alt="logo b" loading="lazy">
+                </div>
+                <div>
+                    <img width="100%" height="100px"
+                        src="https://res.cloudinary.com/dbj8bu037/image/upload/v1756230840/logo_t57ii9.png" alt="logo b"
+                        loading="lazy">
+                </div>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3>هل ترغب في معرفة المزيد عن خدماتنا؟</h3>
+            <p>تواصل معنا اليوم لنقدم لك أفضل الحلول الزراعية المبتكرة التي تناسب احتياجاتك.</p>
+            <a href="contact.html" class="btn-primary">تواصل معنا <i class="fa-solid fa-envelope-open-text"></i></a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="row">
+            <div>
+                <strong>شركة vervida للتنمية والصناعات الكيميائية</strong>
+                <div class="footer-info">المنطقة الصناعية - مصر</div>
+                <div class="footer-info">📞 +201000000000 — ✉ info@vervida.com</div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/+201000000000" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="mailto:info@vervida.com" aria-label="البريد الإلكتروني"><i
+                        class="fa-solid fa-envelope"></i></a>
+            </div>
+            <div class="copyright-info">
+                <p> شركة فيرفيدا للتنمية - جميع الحقوق محفوظة <span class="tel-span">2025 ©</span></p>
+                <p class="powered">
+                    Powered By Pioneercode
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

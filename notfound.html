@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 - الصفحة غير موجودة | شركة فيرفيدا للتنمية</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Cairo', Tahoma, sans-serif;
+    background: #f9f9f6;
+    color: #2e7d32;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  header {
+    background: linear-gradient(90deg,#4caf50 0%,#81c784 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2000;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+  }
+  header .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    position: relative;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.9rem;
+    user-select: none;
+  }
+  
+  main {
+    flex-grow: 1;
+    max-width: 900px;
+    margin: 130px auto 60px;
+    padding: 20px 28px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+    text-align: center;
+  }
+  @media (min-width: 1024px) {
+    main {
+      margin: 150px auto 80px;
+      padding: 40px 50px;
+      max-width: 1100px;
+    }
+  }
+  main h1 {
+    font-size: 6rem;
+    font-weight: 900;
+    margin: 0;
+    color: #4caf50;
+    user-select: none;
+    transition: transform 0.4s ease;
+  }
+  main h1:hover {
+    transform: scale(1.1);
+  }
+  main h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    color: #2e7d32;
+  }
+  main p {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 36px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .btn-home {
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 30px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(72, 180, 97, 0.6);
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  .btn-home:hover,
+  .btn-home:focus {
+    background-color: #388e3c;
+    box-shadow: 0 8px 18px rgba(57, 130, 56, 0.8);
+    outline: none;
+  }
+  footer {
+    background: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 22px 12px;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo" aria-label="شعار شركة فيرفيدا للتنمية">🌱 فيرفيدا للتنمية</div>
+</header>
+
+<main role="main" aria-labelledby="pageTitle">
+  <h1 id="pageTitle" aria-live="polite">404</h1>
+  <h2>عذراً، الصفحة التي تبحث عنها غير موجودة</h2>
+  <p>
+    يبدو أن الصفحة التي تحاول الوصول إليها قد تم نقلها أو حذفها، أو أن الرابط الذي استخدمته غير صحيح.<br />
+    نرجو منك التحقق من العنوان أو العودة إلى الصفحة الرئيسية للاستمرار في تصفح موقعنا.
+  </p>
+  <a href="index.html" class="btn-home" role="button" aria-label="العودة إلى الصفحة الرئيسية">العودة إلى الصفحة الرئيسية</a>
+</main>
+
+<footer>
+    فيرفيدا للتنمية
+</footer>
+
+</body>
+</html>
